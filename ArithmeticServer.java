@@ -7,13 +7,28 @@
 //*******************************************************************
 import java.rmi.*;
 import java.rmi.server.*;
+import java.io.File; 
 
 public class ArithmeticServer
 {
 	// Bind ArithmeticServer and Registry
 	public static void main(String args[])
 	{
-		//System.setSecurityManager(new RMISecurityManager());
+        try{
+            File f = null;
+            f = new File("db.txt");
+            if(f.exists() == false){
+                f.createNewFile();
+            }
+            f = new File("list.txt");
+            if(f.exists() == false){
+                f.createNewFile();
+            }  
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+         
+        //System.setSecurityManager(new RMISecurityManager());
 		try
 		{
 			ArithmeticRMIImpl name = new ArithmeticRMIImpl();

@@ -14,10 +14,7 @@ class CalculatorRMIClient
 {
 	public static void main(String args[])
 	{
-	    ArithmeticInterface		o = null;
-		int		op= 0; 	// add=0, sub=1, mul = 2, div = 3
-		long	num1 = 0, num2 = 0, result = 0;
-		
+	    ArithmeticInterface		o = null;		
 	    int flag = 0;
 		int select = 0;
         String id = null;
@@ -129,11 +126,18 @@ class CalculatorRMIClient
 						break;
 					
 					case 7:
+                        if(id != null){
+                               
+                               
+                        }
+                        else{
+                            System.out.println("Err: No login.\n");
+                        }
 						break;
 					
 					case 8:
 						flag = 1;
-						System.out.println("88~");
+						System.out.println("BYE~");
                         break;
 					default:
 						System.out.println("Error select number!");
@@ -141,8 +145,7 @@ class CalculatorRMIClient
 
 			}
 		
-		
-	        //result = o.add(num1, num2);
+        
 	    }
         catch(Exception e)
         {
