@@ -17,6 +17,7 @@ class CalculatorRMIClient
 	    ArithmeticInterface		o = null;		
 	    int flag = 0;
 		int select = 0;
+		int number = 0;
         String id = null;
         String username = null;
         String password = null;
@@ -107,8 +108,18 @@ class CalculatorRMIClient
 					
 					case 5:
 						if(id != null){
-                            
-                            
+							System.out.println(o.subject());
+                            System.out.println("Enter discussion number:");
+							number = scanner.nextInt();
+							System.out.println("Enter reply contents:");
+                            scanner = new Scanner(System.in);
+                            contents = scanner.nextLine();
+                            if(o.reply(number,username,contents) == 1){
+								System.out.println("Responses discussion successful!\n");
+							}
+							else{
+								System.out.println("The wrong number, please try again.\n");
+							}
                         }
                         else{
                             System.out.println("Err: No login.\n");
@@ -117,8 +128,11 @@ class CalculatorRMIClient
 					
 					case 6:
 						if(id != null){
-                               
-                               
+                            System.out.println(o.subject());
+                            System.out.println("Enter discussion number:");
+							number = scanner.nextInt();
+                            System.out.println();
+							System.out.println(o.discussion(number));
                         }
                         else{
                             System.out.println("Err: No login.\n");
@@ -127,8 +141,15 @@ class CalculatorRMIClient
 					
 					case 7:
                         if(id != null){
-                               
-                               
+                            System.out.println(o.subject());
+                            System.out.println("Enter delete discussion number:");
+							number = scanner.nextInt();
+                            if(o.delete(number) == 1){
+								System.out.println("Delete discussion successful!\n");
+							}
+							else{
+								System.out.println("The wrong number, please try again.");
+							}
                         }
                         else{
                             System.out.println("Err: No login.\n");
@@ -144,7 +165,6 @@ class CalculatorRMIClient
 				}
 
 			}
-		
         
 	    }
         catch(Exception e)
