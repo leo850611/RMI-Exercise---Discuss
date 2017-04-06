@@ -144,11 +144,11 @@ class CalculatorRMIClient
                             System.out.println(o.subject());
                             System.out.println("Enter delete discussion number:");
 							number = scanner.nextInt();
-                            if(o.delete(number) == 1){
+                            if(o.delete(number,username) == 1){
 								System.out.println("Delete discussion successful!\n");
 							}
 							else{
-								System.out.println("The wrong number, please try again.");
+								System.out.println("The wrong number or user error, please try again.");
 							}
                         }
                         else{

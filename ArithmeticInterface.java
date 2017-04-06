@@ -13,6 +13,6 @@ public interface ArithmeticInterface extends Remote {
 	public String subject() throws java.rmi.RemoteException;
 	public int reply(int no, String username, String re) throws java.rmi.RemoteException;
 	public String discussion(int no) throws java.rmi.RemoteException;
-    public int delete(int no) throws java.rmi.RemoteException;
+    public int delete(int no, String user) throws java.rmi.RemoteException;
 }
 

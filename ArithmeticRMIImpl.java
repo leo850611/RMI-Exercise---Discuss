@@ -240,7 +240,7 @@ public class ArithmeticRMIImpl extends UnicastRemoteObject implements Arithmetic
 	}
 	
     @SuppressWarnings("unchecked")
-	public int delete(int line)throws java.rmi.RemoteException{
+	public int delete(int line, String user)throws java.rmi.RemoteException{
 		flag = 0;
         lock.writeLock().lock();
 		try{
@@ -251,7 +251,7 @@ public class ArithmeticRMIImpl extends UnicastRemoteObject implements Arithmetic
             List list = new ArrayList();
 			while( (str=br.readLine()) != null ){
 				++num;
-				if( num == line ){
+				if( (num == line) && (str.split(" \\$~ ")[0]).equals(user) ){
 					flag = 1;
 					continue;
 				}
